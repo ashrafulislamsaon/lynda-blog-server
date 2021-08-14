@@ -8,7 +8,7 @@ const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 
-
+const port = 5000;
 const app = express();
 dotenv.config();
 app.use("/images", express.static(path.join(__dirname, "/images")))
@@ -55,6 +55,4 @@ app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
 
-app.listen("5000", () => {
-    console.log("server is running");
-})
+app.listen(process.env.PORT || port)
